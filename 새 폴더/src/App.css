@@ -1,0 +1,76 @@
+/* CSS variables for active tracer colors */
+:root {
+  --active-color: #3b82f6; /* default blue */
+  --active-color-light: #eff6ff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9; 
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; 
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; 
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Active states based on selected tracer */
+.nav-btn.active {
+  border-left-color: var(--active-color);
+  background-color: var(--active-color-light);
+}
+
+.nav-btn.active .dot {
+  background-color: var(--active-color);
+}
+
+.bg-active-color {
+  background-color: var(--active-color);
+}
+
+.text-active-color {
+  color: var(--active-color);
+}
+
+.border-active-color {
+  border-color: var(--active-color);
+}
+
+.bg-active-color-light {
+  background-color: var(--active-color-light);
+}
+
+/* Body silhouette animation components */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .7; transform: scale(1.1); }
+}
+
+.glowing-dot {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.blood-vessel {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: flow 3s linear forwards;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
